@@ -16,7 +16,8 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 - run `source ~/YOUR_BASH_CONFIG_HERE` to refresh into your current session
 - test Deno is installed correctly with `deno --version`
-- deno --allow-read --allow-run
+- clone down repo and cd into repo root `cd STL_ROOT_DIR`
+- in terminal `deno run --allow-read index.ts PATH_TO_STL_FILE` where PATH_TO_STL_FILE is the location of an ASCII STL file
 
 ## Design Choices
 
