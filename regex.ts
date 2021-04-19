@@ -1,3 +1,3 @@
-export const facetRegexp = /^.+facet\snormal.+(\n|\r|\u2028|\u2029)\s{2,}.+(\n|\r|\u2028|\u2029)\s{2,}.+(\n|\r|\u2028|\u2029)\s{2,}.+(\n|\r|\u2028|\u2029)\s{2,}.+/gm;
+export const facetRegexp = /^\s{0,}facet\snormal.+(\n|\r|\u2028|\u2029)\s{1,}.+(\n|\r|\u2028|\u2029)\s{1,}.+(\n|\r|\u2028|\u2029)\s{1,}.+(\n|\r|\u2028|\u2029)\s{1,}.+/gm;
 
-export const vertexRegexp = /^\s{3,}vertex(.+)$/gm;
+export const vertexRegexp = /^\s{0,}vertex(.+)$/gm;

@@ -23,10 +23,9 @@ export default class Runner {
         rawFacets.forEach((facet) => {
           // this is where I would handle the facet normal if I needed to
           const rawVertices: RegExpMatchArray | [] = facet.match(vertexRegexp) || [];
-
           const vertices = rawVertices.map(
             (vertex) => {
-              const cleaned = vertex.trim().split(' ').slice(1, 4);
+              const cleaned = vertex.trim().split(/\s{1,}/gm).slice(1, 4);
               return {
                 x: parseFloat(cleaned[0]),
                 y: parseFloat(cleaned[1]),

@@ -31,7 +31,6 @@ export default class Facet {
       crossProduct[0] * crossProduct[0] + crossProduct[1] * crossProduct[1] + crossProduct[2] * crossProduct[2],
       
     )
-    // 1/2 sqrt(crossx^2 + crossy^2 + crossz^2)
   }
 
   crossProduct(
