@@ -33,9 +33,11 @@ Facet in particular I think works because it so clearly handles the duties that 
 
 There is also a file that contains the one-off regular expressions that are used to isolate facet blocks and vertices. This is one area that I am certain could use more finesse as it's rather brittle. I'm sure users and different programs will mangle their output and lead to failures in this code when spacing doesn't match my expectations. Perhaps some kind of template string approach to regexps would make more sense - I could look at the number of leading spaces and dynamically build a regex off of that. I had toyed with capture groups but was a little worried about a performance hit when dealing with larger jobs and was eating up too much time.
 
+If I were to spend more time, I think I would rework the `Runner.run` method internals some. I put the try/catch/finally in there initially to stop blowups, but in retrospect, I should have made some custom error types and thrown them instead.
+
 ## Performance Changes
 
-I can immediately see that having a single iteration to handle all the facet object creation is expensive with large files. And it's actually a nested iteration so I have to believe there's a way to build smarter regular expressions that don't require two passes, one for facets, one for vertices. I could probably box up floats in groups of twelve as a facet (3 for normal, 3x3 vertices) and that might cut things down to a single pass.
+I can immediately see that having a single iteration to handle all the facet object creation is expensive with large files. And it's actually a nested iteration so I have to believe there's a way to build smarter regular expressions that don't require two passes, one for facets, one for vertices. I could probably box up floats in groups of twelve as a facet (3 for normal, 3x3 vertices) and that might cut things down to a single iteration.
 
 I tested with a much larger file https://people.sc.fsu.edu/~jburkardt/data/stla/liver.stl (38,000+ triangles), and the difference was noticeable (~345ms for liver.stl, 52ms for Moon.stl).
 
